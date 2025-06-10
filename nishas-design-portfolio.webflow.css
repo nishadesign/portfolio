@@ -50,7 +50,7 @@ body {
   letter-spacing: 0.01em;
 }
 
-h1, h2, h3, .project-heading, .section-title {
+h1, h2, h3, h4, h5, h6, .project-heading, .section-title, .header-title, .heading-subtext, .heading-2, .heading-4, .others-title, .testimonial-main-heading, .job-title, .section-text-header {
   font-family: 'DM Sans', Arial, Helvetica, system-ui, sans-serif;
   color: #111;
   margin: 0 0 20px 0;
@@ -67,53 +67,81 @@ h1, h2, h3, .project-heading, .section-title {
   margin: 0 0 18px 0;
 }
 
+/* Navigation Component */
 .nav-wrapper {
-  background: #fff;
-  border-bottom: 1px solid #eee;
-  width: 100vw;
-  height: 4em;
+  background: #f5f5f5;
+  width: 100%;
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: fixed;
-  left: 0;
-  right: 0;
+  position: sticky;
   top: 0;
-  padding: 0 40px;
+  padding: 10px 40px;
   z-index: 1000;
+  border-bottom: none;
+  transition: background 0.3s ease;
 }
 
 .nav-button-wrapper {
   display: flex;
-  gap: 24px;
+  gap: 20px;
+  justify-content: center;
+  padding-top: 8px;
 }
 
 .nav-link {
-  font-family: 'DM Sans', Arial, Helvetica, system-ui, sans-serif;
-  font-size: 1.1rem;
-  font-weight: 400;
-  color: #888;
-  letter-spacing: 0.02em;
+  color: #4a4a4a;
   text-decoration: none;
+  font-family: 'DM Sans', Arial, Helvetica, system-ui, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
   padding: 8px 20px;
-  border-radius: 999px;
-  transition: background 0.2s, color 0.2s;
-  display: inline-block;
+  transition: all 0.3s ease;
+  border-radius: 20px;
 }
 
-.nav-link-active, .nav-link.w--current {
-  background: #e5e5e5;
-  color: #181818;
+.nav-link:hover {
+  color: #000;
+}
+
+.nav-link.w--current {
+  color: #000;
+  background-color: #d7d5cf;
+  border-radius: 20px;
   font-weight: 700;
 }
 
-.nav-link:hover:not(.nav-link-active):not(.w--current) {
-  color: #444;
-  background: #f3f3f3;
+/* Hero section styling */
+.hero-section {
+  position: relative;
+  width: 100%;
+  margin-bottom: 20px;
 }
 
-.nav-link:visited {
-  color: var(--grey);
+.spacer {
+  height: 0;
+  display: none;
+}
+
+/* Gradient background removed */
+
+/* Responsive navigation */
+@media screen and (max-width: 767px) {
+  .nav-wrapper {
+    padding: 10px 20px;
+    height: 50px;
+  }
+  
+  .nav-button-wrapper {
+    gap: 15px;
+    padding-top: 6px;
+  }
+  
+  .nav-link {
+    padding: 6px 15px;
+    font-size: 16px;
+  }
 }
 
 .header-title {
@@ -124,7 +152,7 @@ h1, h2, h3, .project-heading, .section-title {
   margin-right: 10px;
   padding-top: 0;
   padding-bottom: 0;
-  font-family: Yipes, sans-serif;
+  font-family: 'DM Sans', Arial, Helvetica, system-ui, sans-serif;
   font-size: 8em;
   line-height: .85;
   display: inline-block;
@@ -225,26 +253,11 @@ h1, h2, h3, .project-heading, .section-title {
   padding: 40px 30px;
 }
 
-.page-gradient-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  transform: translateZ(0);
-  will-change: transform;
-}
-
 .page-gradient-img {
   display: none !important;
 }
 
 .page-gradient-img._2 {
-  display: none !important;
-}
-
-.page-gradient-bkgd {
   display: none !important;
 }
 
@@ -332,7 +345,7 @@ h1, h2, h3, .project-heading, .section-title {
   margin-bottom: 0;
   padding-top: 10px;
   padding-bottom: 10px;
-  font-family: DM Sans, sans-serif;
+  font-family: 'DM Sans', Arial, Helvetica, system-ui, sans-serif;
   font-size: 1.8em;
   font-weight: 600;
   line-height: 1em;
@@ -346,55 +359,20 @@ h1, h2, h3, .project-heading, .section-title {
 }
 
 .proj-description {
-  font-family: DM Sans, sans-serif;
-  font-size: 1.2em;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #666;
+  margin-bottom: 12px;
+}
+
+.proj-tags {
+  font-size: 0.9rem;
+  color: #888;
+  margin-top: 4px;
 }
 
 .proj-text {
   text-decoration: none;
-}
-
-.b2b {
-  letter-spacing: -1px;
-  background-color: #fffdf1cc;
-  border-radius: 20px;
-  padding: 4px 10px;
-  font-family: Inconsolata, monospace;
-}
-
-.b2b.b2c {
-  background-color: var(--b2b);
-}
-
-.b2b.si {
-  background-color: #c5ffe2cc;
-}
-
-.b2b.a11y {
-  background-color: #ffe6d3cc;
-}
-
-.b2b.metaverse {
-  background-color: #fffc;
-}
-
-.b2b.gen-ai {
-  background-color: #dff7ffcc;
-}
-
-.b2b.sponsored {
-  background-color: #ffbebecc;
-}
-
-.tag {
-  grid-column-gap: 8px;
-  grid-row-gap: 8px;
-  display: flex;
-}
-
-.pill-text {
-  color: var(--grey);
-  letter-spacing: 0;
 }
 
 .background-cover {
@@ -567,7 +545,7 @@ h1, h2, h3, .project-heading, .section-title {
 .section-text-header {
   color: var(--grey);
   text-transform: capitalize;
-  font-family: Fahkwang, sans-serif;
+  font-family: 'DM Sans', Arial, Helvetica, system-ui, sans-serif;
   font-size: 2rem;
   font-weight: 200;
   line-height: 1.4;
@@ -644,6 +622,7 @@ h1, h2, h3, .project-heading, .section-title {
 .heading-subtext {
   color: var(--grey);
   margin-top: 0;
+  font-family: 'DM Sans', Arial, Helvetica, system-ui, sans-serif;
   font-size: 1.2em;
   font-weight: 400;
   line-height: 1.4em;
@@ -713,7 +692,7 @@ h1, h2, h3, .project-heading, .section-title {
 
 .project-heading {
   color: #222;
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'DM Sans', Arial, Helvetica, system-ui, sans-serif;
   font-size: 2rem;
   font-weight: 600;
   margin: 0 0 32px 0;
@@ -1012,20 +991,13 @@ h1, h2, h3, .project-heading, .section-title {
   grid-area: span 1 / span 1 / span 1 / span 1;
 }
 
-@font-face {
-  font-family: 'Yipes';
-  src: url('../fonts/Yipes-Regular.otf') format('opentype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
+/* Using DM Sans for all headings now */
 
-/* Add a spacer at the top of the main content to prevent content from being hidden under the nav bar */
+/* Removed spacer for nav bar */
 .spacer {
-  height: 6em;
-  width: 100%;
-  background: transparent;
-  display: block;
+  height: 0;
+  width: 0;
+  display: none;
 }
 
 /* Add smooth scroll behavior to the whole page */
@@ -1580,11 +1552,18 @@ strong, b {
   margin-bottom: 8px;
 }
 
+.company-name {
+  color: #666;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 12px 0;
+}
+
 .job-title {
   color: #333;
   font-size: 1.2rem;
   font-weight: 700;
-  margin: 8px 0;
+  margin: 0 0 8px 0;
 }
 
 .job-period {
@@ -1718,9 +1697,7 @@ strong, b {
   transition: color 0.2s ease;
 }
 
-.proj:hover .project-title {
-  color: #5c31ff;
-}
+/* Removed title color change on hover */
 
 .proj-description {
   font-size: 1rem;
@@ -1729,11 +1706,13 @@ strong, b {
   margin-bottom: 12px;
 }
 
-.tag {
-  display: flex;
-  gap: 8px;
-  margin-top: 8px;
+.proj-tags {
+  font-size: 0.9rem;
+  color: #888;
+  margin-top: 4px;
 }
+
+/* Tag class removed as it's no longer used */
 
 @media screen and (max-width: 767px) {
   .projects-section {
@@ -1747,12 +1726,11 @@ strong, b {
 }
 
 .fixed-nav {
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
-  right: 0;
+  width: 100%;
   z-index: 1000;
-  background: white;
+  background: #f5f5f5;
 }
 
 .wish-fashion-new-image {
